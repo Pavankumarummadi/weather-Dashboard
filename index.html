@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stellar Weather | Your Premium Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="dashboard">
+        <header>
+            <div class="search-container">
+                <i class="fas fa-search"></i>
+                <input type="text" id="citySearch" placeholder="Search for a city...">
+            </div>
+            <div class="user-profile">
+                <i class="fas fa-bell" style="margin-right: 20px; cursor: pointer;"></i>
+                <i class="fas fa-user-circle" style="font-size: 24px; cursor: pointer;"></i>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <section class="current-weather">
+                <div class="location">
+                    <h1 id="cityName">London</h1>
+                    <p id="currentDate">Friday, 27 February 2026</p>
+                    <div class="condition-tag"
+                        style="background: rgba(255,255,255,0.1); padding: 5px 15px; border-radius: 20px; display: inline-block; margin-top: 15px; border: 1px solid rgba(255,255,255,0.2);">
+                        Cloudy
+                    </div>
+                </div>
+                <div class="temp-container">
+                    <div class="temp" id="currentTemp">12°</div>
+                    <div class="condition">Mostly Cloudy</div>
+                </div>
+            </section>
+
+            <section class="details-grid">
+                <div class="detail-card">
+                    <h3>Humidity</h3>
+                    <p id="humidity">64%</p>
+                    <i class="fas fa-tint" style="color: var(--accent); margin-top: 10px;"></i>
+                </div>
+                <div class="detail-card">
+                    <h3>Wind Speed</h3>
+                    <p id="windSpeed">18 km/h</p>
+                    <i class="fas fa-wind" style="color: var(--accent); margin-top: 10px;"></i>
+                </div>
+                <div class="detail-card">
+                    <h3>UV Index</h3>
+                    <p id="uvIndex">4 Low</p>
+                    <i class="fas fa-sun" style="color: var(--accent); margin-top: 10px;"></i>
+                </div>
+                <div class="detail-card">
+                    <h3>Pressure</h3>
+                    <p id="pressure">1012 hPa</p>
+                    <i class="fas fa-tachometer-alt" style="color: var(--accent); margin-top: 10px;"></i>
+                </div>
+            </section>
+
+            <section class="forecast">
+                <h2 style="margin-bottom: 20px;">7-Day Forecast</h2>
+                <div class="forecast-container"
+                    style="display: flex; gap: 15px; overflow-x: auto; padding-bottom: 10px;">
+                    <!-- Placeholder Forecast Cards -->
+                    <div class="detail-card" style="min-width: 120px;">
+                        <span style="display: block; margin-bottom: 10px; font-weight: 600;">Sat</span>
+                        <i class="fas fa-cloud-sun" style="font-size: 24px; margin-bottom: 10px;"></i>
+                        <span style="display: block; font-size: 18px;">14°</span>
+                    </div>
+                    <div class="detail-card" style="min-width: 120px;">
+                        <span style="display: block; margin-bottom: 10px; font-weight: 600;">Sun</span>
+                        <i class="fas fa-sun" style="font-size: 24px; margin-bottom: 10px;"></i>
+                        <span style="display: block; font-size: 18px;">16°</span>
+                    </div>
+                    <div class="detail-card" style="min-width: 120px;">
+                        <span style="display: block; margin-bottom: 10px; font-weight: 600;">Mon</span>
+                        <i class="fas fa-cloud-rain" style="font-size: 24px; margin-bottom: 10px;"></i>
+                        <span style="display: block; font-size: 18px;">11°</span>
+                    </div>
+                    <div class="detail-card" style="min-width: 120px;">
+                        <span style="display: block; margin-bottom: 10px; font-weight: 600;">Tue</span>
+                        <i class="fas fa-bolt" style="font-size: 24px; margin-bottom: 10px;"></i>
+                        <span style="display: block; font-size: 18px;">9°</span>
+                    </div>
+                    <div class="detail-card" style="min-width: 120px;">
+                        <span style="display: block; margin-bottom: 10px; font-weight: 600;">Wed</span>
+                        <i class="fas fa-cloud" style="font-size: 24px; margin-bottom: 10px;"></i>
+                        <span style="display: block; font-size: 18px;">13°</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <section class="world-explorer">
+            <h2>World Weather Explorer</h2>
+            <div class="city-grid">
+                <!-- USA -->
+                <div class="city-card-premium" onclick="updateWeather('New York')">
+                    <div class="bg-img" style="background-image: url('landmark_usa.png');"></div>
+                    <div class="overlay">
+                        <h4>USA</h4>
+                        <div class="temp-small">8°</div>
+                    </div>
+                </div>
+                <!-- Japan -->
+                <div class="city-card-premium" onclick="updateWeather('Tokyo')">
+                    <div class="bg-img" style="background-image: url('landmark_japan.png');"></div>
+                    <div class="overlay">
+                        <h4>Japan</h4>
+                        <div class="temp-small">15°</div>
+                    </div>
+                </div>
+                <!-- France -->
+                <div class="city-card-premium" onclick="updateWeather('Paris')">
+                    <div class="bg-img" style="background-image: url('landmark_france.png');"></div>
+                    <div class="overlay">
+                        <h4>France</h4>
+                        <div class="temp-small">11°</div>
+                    </div>
+                </div>
+                <!-- India -->
+                <div class="city-card-premium" onclick="updateWeather('India')">
+                    <div class="bg-img" style="background-image: url('landmark_india.png');"></div>
+                    <div class="overlay">
+                        <h4>India</h4>
+                        <div class="temp-small">28°</div>
+                    </div>
+                </div>
+                <!-- Brazil -->
+                <div class="city-card-premium" onclick="updateWeather('Brazil')">
+                    <div class="bg-img"
+                        style="background-image: url('https://images.unsplash.com/photo-1516306580123-e6e52b1b7b5f?auto=format&fit=crop&w=800&q=80');">
+                    </div>
+                    <div class="overlay">
+                        <h4>Brazil</h4>
+                        <div class="temp-small">26°</div>
+                    </div>
+                </div>
+                <!-- Canada -->
+                <div class="city-card-premium" onclick="updateWeather('Canada')">
+                    <div class="bg-img"
+                        style="background-image: url('https://images.unsplash.com/photo-1503614472-8c93d56e92ce?auto=format&fit=crop&w=800&q=80');">
+                    </div>
+                    <div class="overlay">
+                        <h4>Canada</h4>
+                        <div class="temp-small">2°</div>
+                    </div>
+                </div>
+                <!-- Germany -->
+                <div class="city-card-premium" onclick="updateWeather('Germany')">
+                    <div class="bg-img"
+                        style="background-image: url('https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=800&q=80');">
+                    </div>
+                    <div class="overlay">
+                        <h4>Germany</h4>
+                        <div class="temp-small">7°</div>
+                    </div>
+                </div>
+                <!-- UK -->
+                <div class="city-card-premium" onclick="updateWeather('London')">
+                    <div class="bg-img"
+                        style="background-image: url('https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=800&q=80');">
+                    </div>
+                    <div class="overlay">
+                        <h4>UK</h4>
+                        <div class="temp-small">12°</div>
+                    </div>
+                </div>
+                <!-- Italy -->
+                <div class="city-card-premium" onclick="updateWeather('Italy')">
+                    <div class="bg-img"
+                        style="background-image: url('https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80');">
+                    </div>
+                    <div class="overlay">
+                        <h4>Italy</h4>
+                        <div class="temp-small">18°</div>
+                    </div>
+                </div>
+                <!-- Australia -->
+                <div class="city-card-premium" onclick="updateWeather('Australia')">
+                    <div class="bg-img"
+                        style="background-image: url('https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?auto=format&fit=crop&w=800&q=80');">
+                    </div>
+                    <div class="overlay">
+                        <h4>Australia</h4>
+                        <div class="temp-small">24°</div>
+                    </div>
+                </div>
+                <!-- South Africa -->
+                <div class="city-card-premium" onclick="updateWeather('South Africa')">
+                    <div class="bg-img"
+                        style="background-image: url('https://images.unsplash.com/photo-1580060839134-75a5edca2e99?auto=format&fit=crop&w=800&q=80');">
+                    </div>
+                    <div class="overlay">
+                        <h4>South Africa</h4>
+                        <div class="temp-small">21°</div>
+                    </div>
+                </div>
+                <!-- China -->
+                <div class="city-card-premium" onclick="updateWeather('China')">
+                    <div class="bg-img"
+                        style="background-image: url('https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=800&q=80');">
+                    </div>
+                    <div class="overlay">
+                        <h4>China</h4>
+                        <div class="temp-small">14°</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
